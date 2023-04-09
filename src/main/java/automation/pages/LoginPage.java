@@ -11,7 +11,7 @@ import automation.genericfunctions.Utility;
 
 public class LoginPage extends GenericMethods{
     
-    protected WebDriver driver;
+    private WebDriver driver;
     
     @FindBy(xpath="//input[@name='username']")
     WebElement usernamebox;

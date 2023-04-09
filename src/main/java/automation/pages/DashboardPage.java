@@ -14,6 +14,9 @@ public class DashboardPage extends GenericMethods{
     
     @FindBy(xpath="//h6[@class='oxd-text oxd-text--h6 oxd-topbar-header-breadcrumb-module']")
     WebElement pageTitle;
+    
+    @FindBy(xpath="//span[text()='PIM']")
+    WebElement navMenuPIMLocator;
 
     public DashboardPage(WebDriver driver) {
         super(driver);
@@ -23,6 +26,11 @@ public class DashboardPage extends GenericMethods{
     
     public String getPageTitle() throws Exception {
         return getElementText(pageTitle);
+    }
+    
+    public PIMPage clickPIM() throws Exception {
+        click(navMenuPIMLocator);
+        return new PIMPage(driver);
     }
 
 
