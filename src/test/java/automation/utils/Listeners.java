@@ -15,12 +15,11 @@ import com.aventstack.extentreports.Status;
 public class Listeners extends BaseTest implements ITestListener{
 	ExtentTest test;
 	ExtentReports extent = ExtentReporterNG.getReportObject();
-	ThreadLocal<ExtentTest> extentTest = new ThreadLocal<ExtentTest>(); //Thread safe
+	ThreadLocal<ExtentTest> extentTest = new ThreadLocal<ExtentTest>();
 	@Override
 	public void onTestStart(ITestResult result) {
-		// TODO Auto-generated method stub
 		test = extent.createTest(result.getMethod().getMethodName());
-		extentTest.set(test);//unique thread id(ErrorValidationTest)->test
+		extentTest.set(test);
 	}
 
 	@Override
@@ -32,7 +31,6 @@ public class Listeners extends BaseTest implements ITestListener{
 
 	@Override
 	public void onTestFailure(ITestResult result) {
-		// TODO Auto-generated method stub
 		extentTest.get().fail(result.getThrowable());//
 		
 		try {
@@ -40,7 +38,6 @@ public class Listeners extends BaseTest implements ITestListener{
 					.get(result.getInstance());
 			
 		} catch (Exception e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		
@@ -51,14 +48,9 @@ public class Listeners extends BaseTest implements ITestListener{
 			
 			filePath = getScreenshot(result.getMethod().getMethodName(),driver);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		extentTest.get().addScreenCaptureFromPath(filePath, result.getMethod().getMethodName());
-		
-		
-		//Screenshot, Attach to report
-		
 		
 	}
 
@@ -82,7 +74,6 @@ public class Listeners extends BaseTest implements ITestListener{
 
 	@Override
 	public void onFinish(ITestContext context) {
-		// TODO Auto-generated method stub
 		extent.flush();
 		
 	}
