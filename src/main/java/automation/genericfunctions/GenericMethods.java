@@ -405,5 +405,9 @@ public class GenericMethods {
         
         return cellValue;
     }
+    
+    public boolean isElementDisplayed(WebElement element) {
+        return element.isDisplayed();
+    }
 
 }
