@@ -3,8 +3,7 @@
 <suite parallel="tests" name="orange-hrm-application">
 
 	<listeners>
-		<listener
-			class-name="automation.utils.Listeners" />
+		<listener class-name="automation.utils.Listeners" />
 	</listeners>
 
 	<test thread-count="5" name="Login Functionality Validation">
@@ -13,4 +12,14 @@
 				name="automation.tests.TC01_Validate_Login_Functionality_Orange_HRM" />
 		</classes>
 	</test> <!-- Test -->
+	<test name="Person Information Management Validations">
+		<classes>
+			<class name="automation.tests.TC02_Validate_PIM_Table_Sorting"></class>
+		</classes>
+	</test>
+	<test name="Google Search Page Validations">
+		<classes>
+			<class name="automation.tests.TC03_Google_Test_Cases"></class>
+		</classes>
+	</test>
 </suite> <!-- Suite -->
